@@ -98,7 +98,9 @@ module WhatsappSdk
       end
 
       def validate_api_version(api_version)
-        raise ArgumentError, "Invalid API version: #{api_version}" unless API_VERSIONS.include?(api_version)
+        unless API_VERSIONS.include?(api_version)
+          raise ArgumentError, "Invalid API version: #{api_version}"
+        end
       end
     end
   end
